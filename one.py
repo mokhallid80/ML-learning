@@ -7,6 +7,7 @@ from imblearn.over_sampling import RandomOverSampler
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
 
 from sklearn.metrics import classification_report
 
@@ -103,7 +104,17 @@ def log():
     print(classification_report(test_y, y_predictions))
 
 
+# SVM
+def SVM():
+    svm_model = SVC()
+    svm_model.fit(train_x, train_y)
+    y_predictions = svm_model.predict(test_x)
+    print("SVM Results")
+    print(classification_report(test_y, y_predictions))
+
+
 
 kNN()
 nb()
 log()
+SVM()
